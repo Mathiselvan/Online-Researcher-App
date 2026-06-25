@@ -1,30 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>AI App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Topic Researcher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Gemini AI Test</h1>
+    <div class="overlay"></div>
+    <div class="container">
+        <header class="top-header">
+            <div class="brand">
+                <div class="logo">🔬</div>
+                <div class="brand-text">
+                    <h1>Researcher App</h1>
+                    <p>AI-Powered Research Analysis</p>
+                </div>
+            </div>
+            <!-- top-right assistant badge intentionally removed to match requested design -->
+        </header>
 
-  <button onclick="runAI()">Test AI</button>
+        <main class="two-column">
+            <aside class="left-panel">
+                <div class="form-wrap">
+                    <h2>Start Your Research</h2>
+                    <p class="muted">Provide your topic and context for AI-powered analysis</p>
+                    <div class="input-section">
+                        <form id="researchForm">
+                            <div class="form-group">
+                                <label for="topic">Research Topic</label>
+                                <input type="text" id="topic" placeholder="Enter your research topic..." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="context">Additional Context (Optional)</label>
+                                <textarea id="context" rows="6" placeholder="Provide any additional context, background information, or specific aspects you want to focus on..."></textarea>
+                            </div>
+                            <button type="submit" id="submitBtn">
+                                <span class="btn-text">Generate Analysis</span>
+                            </button>
+                        </form>
+                        <div class="footnote">🔒 Your data is processed securely and privately</div>
+                    </div>
+                </div>
+            </aside>
 
-  <script>
-    async function runAI() {
-      const res = await fetch('/api/gemini', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          model: 'gemini-1.5-flash',
-          prompt: 'Hello AI'
-        })
-      });
+            <section class="right-panel">
+                <div id="loader" class="loader hidden">
+                    <div class="spinner"></div>
+                    <p>Generating analysis...</p>
+                </div>
 
-      const data = await res.json();
-      console.log(data);
-      alert(JSON.stringify(data));
-    }
-  </script>
+                <div id="errorReport" class="error-panel hidden">
+                    <h3>Error Report</h3>
+                    <div id="errorReportContent"></div>
+                </div>
+
+                <div id="results" class="results-section hidden">
+                    <div class="result-card keypoints">
+                        <h3>Key Points</h3>
+                        <ul id="keyPointsList"></ul>
+                    </div>
+                    <div class="result-card analysis">
+                        <h3 id="analysisTitle">Analysis</h3>
+                        <div class="analysis-grid">
+                            <div class="analysis-col positive">
+                                <h4 id="positiveTitle">Positive Aspects</h4>
+                                <ul id="positiveList"></ul>
+                            </div>
+                            <div class="analysis-col negative">
+                                <h4 id="negativeTitle">Challenges / Limitations</h4>
+                                <ul id="negativeList"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-card recommendation">
+                        <h3>Recommendation</h3>
+                        <p id="recommendationText"></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
