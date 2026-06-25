@@ -1,28 +1,115 @@
 ```html
-<div class="card analysis-card">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Researcher App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="page-bg"></div>
+    <div class="page-overlay"></div>
 
-    <div class="analysis-header">
-        <h3 id="analysisTitle">Analysis</h3>
+    <div class="container">
+        <header class="top-header">
+            <div class="brand">
+                <div class="logo">🔬</div>
+                <div class="brand-text">
+                    <h1>Researcher App</h1>
+                    <p>AI-Powered Research Analysis</p>
+                </div>
+            </div>
+            <div class="badge">
+                <span>AI</span>
+                <p>Insight Engine</p>
+            </div>
+        </header>
+
+        <main class="content-grid">
+            <aside class="side-panel">
+                <div class="panel-heading">
+                    <p class="eyebrow">Start Your Research</p>
+                    <h2>Provide your topic and context for <span>AI-powered</span> analysis</h2>
+                </div>
+
+                <form id="researchForm" class="research-form">
+                    <label class="field-label" for="topic">
+                        <span class="field-icon">🔎</span>
+                        Research Topic
+                    </label>
+                    <input id="topic" name="topic" type="text" placeholder="Enter your research topic..." required />
+
+                    <label class="field-label" for="context">
+                        <span class="field-icon">📄</span>
+                        Additional Context (Optional)
+                    </label>
+                    <textarea id="context" name="context" placeholder="Provide any additional context, background information, or specific aspects you want to focus on..."></textarea>
+
+                    <button id="submitBtn" type="submit" class="primary-button">
+                        <span class="btn-text">✨ Generate Analysis</span>
+                    </button>
+                </form>
+
+                <div class="footnote">
+                    <span>🔒</span>
+                    <span>Your data is processed securely and privately</span>
+                </div>
+            </aside>
+
+            <section class="main-panel">
+                <div id="loader" class="loader hidden">
+                    <div class="spinner"></div>
+                    <p>Generating analysis...</p>
+                </div>
+
+                <div id="errorReport" class="error-panel hidden">
+                    <h3>Error Report</h3>
+                    <pre id="errorReportContent"></pre>
+                </div>
+
+                <div id="results" class="results-section hidden">
+                    <div class="card keypoints-card">
+                        <div class="card-header">
+                            <div>
+                                <p class="eyebrow">Key Points</p>
+                                <h3>Research summary and insights</h3>
+                            </div>
+                            <div class="icon-mark">💡</div>
+                        </div>
+                        <div class="card-body">
+                            <ul id="keyPointsList"></ul>
+                        </div>
+                    </div>
+
+                    <div class="card analysis-card">
+                        <div class="analysis-header">
+                            <h3 id="analysisTitle">Analysis</h3>
+                        </div>
+                        <div class="analysis-grid">
+                            <div class="analysis-col positive">
+                                <h4 id="positiveTitle">Opportunities</h4>
+                                <ul id="positiveList"></ul>
+                            </div>
+                            <div class="analysis-col negative">
+                                <h4 id="negativeTitle">Risks</h4>
+                                <ul id="negativeList"></ul>
+                            </div>
+                        </div>
+                        <div class="recommendation">
+                            <h3>Recommendation</h3>
+                            <p id="recommendationText"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 
-    <div class="analysis-grid">
-
-        <div class="analysis-col positive">
-            <h4 id="positiveTitle">Opportunities</h4>
-            <ul id="positiveList"></ul>
-        </div>
-
-        <div class="analysis-col negative">
-            <h4 id="negativeTitle">Risks</h4>
-            <ul id="negativeList"></ul>
-        </div>
-
-    </div>
-
-    <div class="recommendation">
-        <h3>Recommendation</h3>
-        <p id="recommendationText"></p>
-    </div>
-
-</div>
+    <script src="script.js"></script>
+</body>
+</html>
 ```
