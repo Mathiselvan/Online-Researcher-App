@@ -285,9 +285,11 @@ function setLoadingState(isLoading) {
   const loader = $('loader');
   const results = $('results');
   const submitBtn = $('submitBtn');
+  const loaderText = document.querySelector('#loader p');
   if (!loader || !results || !submitBtn) return;
 
   if (isLoading) {
+    if (loaderText) loaderText.textContent = 'Generating analysis...';
     loader.classList.remove('hidden');
     results.classList.add('hidden');
     submitBtn.disabled = true;
@@ -318,6 +320,7 @@ async function handleSubmit(event) {
 
   try {
     const analysis = await generateAnalysis(topicInput.value.trim(), contextInput.value.trim());
+    setLoadingState(false);
     displayResults(analysis);
   } catch (error) {
     console.error('Error generating analysis:', error);
