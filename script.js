@@ -70,6 +70,7 @@ async function fetchWithRetry(prompt, models = ["gemini-2.5-flash"]) {
         });
 
         console.log('Response status:', response.status);
+        alert("Response received. Check console.");
         const responseText = await response.text();
         console.log('Response body (text):', responseText);
 
@@ -121,9 +122,19 @@ async function fetchWithRetry(prompt, models = ["gemini-2.5-flash"]) {
         let parsed;
         if (data && data.candidates && data.candidates[0] && data.candidates[0].content) {
           const resultText = data.candidates[0].content.parts[0].text;
-          try {
-            parsed = JSON.parse(resultText);
-          } catch (parseErr) {
+
+// Remove markdown fences if Gemini adds them
+const cleanedText = resultText
+  .replace(/```json/g, '')
+  .replace(/```/g, '')
+  .trim();
+
+console.log("RAW GEMINI TEXT:", resultText);
+console.log("CLEANED GEMINI TEXT:", cleanedText);
+
+try {
+  parsed = JSON.parse(cleanedText);
+}catch (parseErr) {
             attemptRecord.responseBody = resultText;
             attemptRecord.errorMessage = 'Failed to parse model output as JSON';
             attemptsLog.push(attemptRecord);
@@ -142,6 +153,7 @@ async function fetchWithRetry(prompt, models = ["gemini-2.5-flash"]) {
         } else {
           parsed = data;
         }
+        console.log("PARSED RESPONSE:", parsed);
         if (!parsed.keyPoints || !parsed.analysis || !parsed.recommendation) {
             attemptRecord.responseBody = JSON.stringify(parsed);
             attemptRecord.errorMessage = 'Invalid JSON structure returned from model';
