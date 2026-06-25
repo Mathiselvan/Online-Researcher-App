@@ -281,50 +281,82 @@ Output ONLY valid JSON without any markdown formatting. The JSON should match th
 }
 
 function displayResults(data) {
-  // hide error report on success
-  const errorPanel = document.getElementById('errorReport');
-  const errorContent = document.getElementById('errorReportContent');
-  if (errorPanel) errorPanel.classList.add('hidden');
-  if (errorContent) errorContent.textContent = '';
-    // Key Points
+    // hide error report on success
+    const errorPanel = document.getElementById('errorReport');
+    const errorContent = document.getElementById('errorReportContent');
+
+    if (errorPanel) errorPanel.classList.add('hidden');
+    if (errorContent) errorContent.textContent = '';
+
+    // Get all required elements
     const keyPointsList = document.getElementById('keyPointsList');
+    const analysisTitle = document.getElementById('analysisTitle');
+    const positiveTitle = document.getElementById('positiveTitle');
+    const negativeTitle = document.getElementById('negativeTitle');
+    const positiveList = document.getElementById('positiveList');
+    const negativeList = document.getElementById('negativeList');
+    const recommendationText = document.getElementById('recommendationText');
+    const results = document.getElementById('results');
+
+    // Safety check
+    if (
+        !keyPointsList ||
+        !analysisTitle ||
+        !positiveTitle ||
+        !negativeTitle ||
+        !positiveList ||
+        !negativeList ||
+        !recommendationText ||
+        !results
+    ) {
+        console.error('Missing HTML element(s):', {
+            keyPointsList,
+            analysisTitle,
+            positiveTitle,
+            negativeTitle,
+            positiveList,
+            negativeList,
+            recommendationText,
+            results
+        });
+        return;
+    }
+
+    // Key Points
     keyPointsList.innerHTML = '';
-    data.keyPoints.forEach(point => {
+    (data.keyPoints || []).forEach(point => {
         const li = document.createElement('li');
         li.textContent = point;
         keyPointsList.appendChild(li);
     });
-    
-    // Analysis (Pros/Cons or Opportunities/Risks)
-    document.getElementById('analysisTitle').textContent = data.analysis.type;
-    
-    // Determine titles based on type
-    const isProsCons = data.analysis.type.toLowerCase().includes('pros');
-    document.getElementById('positiveTitle').textContent = isProsCons ? 'Pros' : 'Opportunities';
-    document.getElementById('negativeTitle').textContent = isProsCons ? 'Cons' : 'Risks';
-    
-    const positiveList = document.getElementById('positiveList');
+
+    // Analysis
+    analysisTitle.textContent = data.analysis?.type || 'Analysis';
+
+    const isProsCons =
+        (data.analysis?.type || '').toLowerCase().includes('pros');
+
+    positiveTitle.textContent = isProsCons ? 'Pros' : 'Opportunities';
+    negativeTitle.textContent = isProsCons ? 'Cons' : 'Risks';
+
     positiveList.innerHTML = '';
-    data.analysis.positive.forEach(item => {
+    (data.analysis?.positive || []).forEach(item => {
         const li = document.createElement('li');
         li.textContent = item;
         positiveList.appendChild(li);
     });
-    
-    const negativeList = document.getElementById('negativeList');
+
     negativeList.innerHTML = '';
-    data.analysis.negative.forEach(item => {
+    (data.analysis?.negative || []).forEach(item => {
         const li = document.createElement('li');
         li.textContent = item;
         negativeList.appendChild(li);
     });
-    
+
     // Recommendation
-    document.getElementById('recommendationText').textContent = data.recommendation;
-    
-    // Show results
-    document.getElementById('results').classList.remove('hidden');
-    
-    // Scroll to results smoothly
-    document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+    recommendationText.textContent =
+        data.recommendation || 'No recommendation available';
+
+    results.classList.remove('hidden');
+    results.scrollIntoView({ behavior: 'smooth' });
 }
