@@ -9,8 +9,17 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: '1mb' }));
 
-// Serve static files from project root
+// Serve static files
 app.use(express.static(path.join(__dirname)));
+
+// Explicit routes for CSS and JS
+app.get('/style.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'style.css'));
+});
+
+app.get('/script.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'script.js'));
+});
 
 const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.GEMINI_API_KEY || process.env.GENERATIVE_API_KEY;
