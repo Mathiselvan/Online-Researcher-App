@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Topic Researcher</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <title>Researcher App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="overlay"></div>
+    <div class="starfield"></div>
+    <div class="halo halo-left"></div>
+    <div class="halo halo-right"></div>
+
     <div class="container">
         <header class="top-header">
             <div class="brand">
@@ -18,34 +21,41 @@
                     <p>AI-Powered Research Analysis</p>
                 </div>
             </div>
-            <!-- top-right assistant badge intentionally removed to match requested design -->
+            <div class="badge">
+                <span>AI</span>
+                <p>Insight Engine</p>
+            </div>
         </header>
 
-        <main class="two-column">
-            <aside class="left-panel">
-                <div class="form-wrap">
-                    <h2>Start Your Research</h2>
-                    <p class="muted">Provide your topic and context for AI-powered analysis</p>
-                    <div class="input-section">
-                        <form id="researchForm">
-                            <div class="form-group">
-                                <label for="topic">Research Topic</label>
-                                <input type="text" id="topic" placeholder="Enter your research topic..." required>
-                            </div>
-                            <div class="form-group">
-                                <label for="context">Additional Context (Optional)</label>
-                                <textarea id="context" rows="6" placeholder="Provide any additional context, background information, or specific aspects you want to focus on..."></textarea>
-                            </div>
-                            <button type="submit" id="submitBtn">
-                                <span class="btn-text">Generate Analysis</span>
-                            </button>
-                        </form>
-                        <div class="footnote">🔒 Your data is processed securely and privately</div>
-                    </div>
+        <main class="content-grid">
+            <aside class="side-panel">
+                <div class="panel-title">
+                    <p class="eyebrow">Start Your Research</p>
+                    <h2>Provide your topic and context for <span>AI-powered</span> analysis</h2>
                 </div>
+
+                <form id="researchForm" class="research-form">
+                    <label class="field-label" for="topic">
+                        <span class="field-icon">🔎</span>
+                        Research Topic
+                    </label>
+                    <input type="text" id="topic" placeholder="Mobile Phone" required>
+
+                    <label class="field-label" for="context">
+                        <span class="field-icon">📄</span>
+                        Additional Context (Optional)
+                    </label>
+                    <textarea id="context" rows="6" placeholder="Provide any additional context, background information, or specific aspects you want to focus on..."></textarea>
+
+                    <button type="submit" id="submitBtn">
+                        <span class="btn-text">✨ Generate Analysis</span>
+                    </button>
+                </form>
+
+                <div class="footnote">🔒 Your data is processed securely and privately</div>
             </aside>
 
-            <section class="right-panel">
+            <section class="main-panel">
                 <div id="loader" class="loader hidden">
                     <div class="spinner"></div>
                     <p>Generating analysis...</p>
@@ -57,26 +67,47 @@
                 </div>
 
                 <div id="results" class="results-section hidden">
-                    <div class="result-card keypoints">
-                        <h3>Key Points</h3>
-                        <ul id="keyPointsList"></ul>
-                    </div>
-                    <div class="result-card analysis">
-                        <h3 id="analysisTitle">Analysis</h3>
-                        <div class="analysis-grid">
-                            <div class="analysis-col positive">
-                                <h4 id="positiveTitle">Positive Aspects</h4>
-                                <ul id="positiveList"></ul>
+                    <div class="card keypoints-card">
+                        <div class="card-header">
+                            <div>
+                                <p class="eyebrow">Key Points</p>
+                                <h3>Mobile phone impact and trends</h3>
                             </div>
-                            <div class="analysis-col negative">
-                                <h4 id="negativeTitle">Challenges / Limitations</h4>
-                                <ul id="negativeList"></ul>
+                            <div class="icon-bubble">💡</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="keypoint-list">
+                                <ul id="keyPointsList"></ul>
+                            </div>
+                            <div class="hero-visual">
+                                <div class="device-frame">
+                                    <div class="device-screen"></div>
+                                    <div class="device-top"></div>
+                                </div>
+                                <div class="device-ring"></div>
+                                <div class="phone-glow"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="result-card recommendation">
-                        <h3>Recommendation</h3>
-                        <p id="recommendationText"></p>
+
+                    <div class="card analysis-card">
+                        <div class="analysis-header">
+                            <h3>Comprehensive overview of mobile phone impact and implications.</h3>
+                        </div>
+                        <div class="analysis-grid">
+                            <div class="analysis-col positive">
+                                <h4>Opportunities</h4>
+                                <ul id="positiveList"></ul>
+                            </div>
+                            <div class="analysis-col negative">
+                                <h4>Risks</h4>
+                                <ul id="negativeList"></ul>
+                            </div>
+                        </div>
+                        <div class="recommendation">
+                            <h3>Recommendation</h3>
+                            <p id="recommendationText"></p>
+                        </div>
                     </div>
                 </div>
             </section>
