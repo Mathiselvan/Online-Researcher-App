@@ -1,3 +1,4 @@
+console.log("SCRIPT LOADED");
 window.addEventListener('unhandledrejection', (ev) => {
   console.error('Unhandled Promise Rejection:', ev.reason);
   const loaderMsg = document.querySelector('#loader p');
@@ -5,6 +6,7 @@ window.addEventListener('unhandledrejection', (ev) => {
 });
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('researchForm').addEventListener('submit', async (e) => {
+    console.log("FORM SUBMITTED");
     e.preventDefault();
 
     const topic = document.getElementById('topic').value;
@@ -165,7 +167,11 @@ document.addEventListener('DOMContentLoaded', () => {
           attemptsLog.push(attemptRecord);
           // attach attemptsLog to the successful parsed object for diagnostics if needed
           parsed.__attempts = attemptsLog;
-          return parsed;
+
+console.log("GEMINI SUCCESS");
+console.log(parsed);
+
+return parsed;
         } catch (e) {
           console.error(`❗ Attempt ${attempt + 1} failed for model ${model}:`, e);
           if (attempt === maxAttempts - 1) {
@@ -294,6 +300,10 @@ Output ONLY valid JSON without any markdown formatting. The JSON should match th
   }
 
   function displayResults(data) {
+
+    console.log("DISPLAY RESULTS CALLED");
+    console.log(data);
+
     // hide error report on success
     const errorPanel = document.getElementById('errorReport');
     const errorContent = document.getElementById('errorReportContent');
