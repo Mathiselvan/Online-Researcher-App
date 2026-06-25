@@ -59,7 +59,7 @@ async function fetchWithRetry(prompt, models = ["gemini-2.5-flash"]) {
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
       try {
         // Send request to backend proxy endpoint which holds the secret key server-side.
-        const url = '/api/generate';
+        const url = '/api/gemini';
         const payload = { model, prompt };
         console.log(`Attempt ${attempt + 1} – POST ${url} (model=${model})`);
         console.log('Request payload:', payload);
@@ -250,7 +250,7 @@ function renderErrorReport(attempts) {
   attempts.forEach(at => {
     out += `Model: ${at.model}\n`;
     out += `Attempt #${at.attempt}\n`;
-    out += `Endpoint: /api/generate\n`;
+    out += `Endpoint: /api/gemini\n`;
     out += `HTTP Status: ${at.responseStatus || 'N/A'}\n`;
     out += `Error Code: ${at.errorCode || 'N/A'}\n`;
     out += `Error Message: ${at.errorMessage || 'N/A'}\n`;

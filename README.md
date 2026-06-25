@@ -4,8 +4,8 @@ This repo contains a static front-end and server-side API endpoints for Google G
 
 ## Key updates
 
-- Front-end now calls `/api/generate` relatively, not `http://localhost:3000`.
-- Backend API routes are implemented as Vercel Serverless Functions in `api/generate.js` and `api/health.js`.
+- Front-end now calls `/api/gemini` relatively, not `http://localhost:3000`.
+- Backend API routes are implemented as Vercel Serverless Functions in `api/gemini.js` and `api/health.js`.
 - A health check endpoint is available at `/api/health`.
 - Environment variables are loaded securely from `.env` locally and from Vercel project settings in production.
 - Vercel deployment config is provided in `vercel.json`.
@@ -32,7 +32,7 @@ npm install
 npm run dev
 ```
 
-4. Open the local URL shown in your terminal. The app uses relative routes and will call `/api/generate` on the same origin.
+4. Open the local URL shown in your terminal. The app uses relative routes and will call `/api/gemini` on the same origin.
 
 ## Deployment to Vercel
 
@@ -42,7 +42,7 @@ npm run dev
    - `GEMINI_API_KEY`
 4. Deploy. Your app will be available at the assigned Vercel URL.
 
-The front-end will automatically use the deployed backend because it uses the relative route `/api/generate`.
+The front-end will automatically use the deployed backend because it uses the relative route `/api/gemini`.
 
 ## Health check
 
