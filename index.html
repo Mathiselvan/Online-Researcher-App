@@ -1,115 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Researcher App</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="starfield"></div>
-    <div class="halo halo-left"></div>
-    <div class="halo halo-right"></div>
+```html
+<div class="card analysis-card">
 
-    <div class="container">
-        <header class="top-header">
-            <div class="brand">
-                <div class="logo">🔬</div>
-                <div class="brand-text">
-                    <h1>Researcher App</h1>
-                    <p>AI-Powered Research Analysis</p>
-                </div>
-            </div>
-            <div class="badge">
-                <span>AI</span>
-                <p>Insight Engine</p>
-            </div>
-        </header>
-
-        <main class="content-grid">
-            <aside class="side-panel">
-                <div class="panel-title">
-                    <p class="eyebrow">Start Your Research</p>
-                    <h2>Provide your topic and context for <span>AI-powered</span> analysis</h2>
-                </div>
-
-                <form id="researchForm" class="research-form">
-                    <label class="field-label" for="topic">
-                        <span class="field-icon">🔎</span>
-                        Research Topic
-                    </label>
-                    <input type="text" id="topic" placeholder="Mobile Phone" required>
-
-                    <label class="field-label" for="context">
-                        <span class="field-icon">📄</span>
-                        Additional Context (Optional)
-                    </label>
-                    <textarea id="context" rows="6" placeholder="Provide any additional context, background information, or specific aspects you want to focus on..."></textarea>
-
-                    <button type="submit" id="submitBtn">
-                        <span class="btn-text">✨ Generate Analysis</span>
-                    </button>
-                </form>
-
-                <div class="footnote">🔒 Your data is processed securely and privately</div>
-            </aside>
-
-            <section class="main-panel">
-                <div id="loader" class="loader hidden">
-                    <div class="spinner"></div>
-                    <p>Generating analysis...</p>
-                </div>
-
-                <div id="errorReport" class="error-panel hidden">
-                    <h3>Error Report</h3>
-                    <div id="errorReportContent"></div>
-                </div>
-
-                <div id="results" class="results-section hidden">
-                    <div class="card keypoints-card">
-                        <div class="card-header">
-                            <div>
-                                <p class="eyebrow">Key Points</p>
-                                <h3>Mobile phone impact and trends</h3>
-                            </div>
-                            <div class="icon-bubble">💡</div>
-                        </div>
-                        <div class="card-body">
-                            <div class="keypoint-list">
-                                <ul id="keyPointsList"></ul>
-                            </div>
-                            <div class="hero-visual">
-                                <div class="device-frame">
-                                    <div class="device-screen"></div>
-                                    <div class="device-top"></div>
-                                </div>
-                                <div class="device-ring"></div>
-                                <div class="phone-glow"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card analysis-card">
     <div class="analysis-header">
         <h3 id="analysisTitle">Analysis</h3>
     </div>
 
     <div class="analysis-grid">
+
         <div class="analysis-col positive">
-            <h4 id="positiveTitle">Positive Aspects</h4>
+            <h4 id="positiveTitle">Opportunities</h4>
             <ul id="positiveList"></ul>
         </div>
 
         <div class="analysis-col negative">
-            <h4 id="negativeTitle">Challenges / Limitations</h4>
+            <h4 id="negativeTitle">Risks</h4>
             <ul id="negativeList"></ul>
         </div>
+
     </div>
 
     <div class="recommendation">
         <h3>Recommendation</h3>
         <p id="recommendationText"></p>
     </div>
+
 </div>
-               
+```
