@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,25 +6,97 @@
     <title>Researcher App - AI-Powered Research Analysis</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="starfield"></div>
+    <!-- Futuristic Background Layers -->
+    <div class="bg-universe" aria-hidden="true">
+        <div class="bg-rays"></div>
+        <div class="bg-network"></div>
+        <div class="bg-earth">
+            <div class="earth-glow"></div>
+            <div class="earth-sphere"></div>
+        </div>
+        <div class="bg-waves"></div>
+        <div class="starfield"></div>
+        <div class="neon-particles">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+    </div>
 
-    <!-- Floating Decorations -->
-    <div class="floating-decoration deco-ai-chip">🎨</div>
-    <div class="floating-decoration deco-brain">🧠</div>
-    <div class="floating-decoration deco-phone">📱</div>
-    <div class="floating-decoration deco-charts">📊</div>
-    <div class="floating-decoration deco-shield">🛡️</div>
-    <div class="floating-decoration deco-doc">📄</div>
-    <div class="floating-decoration deco-wireless">📡</div>
+    <!-- Floating Decorative Elements -->
+    <div class="floating-decoration deco-charts" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="36" width="10" height="20" rx="2" fill="url(#grad1)" opacity="0.8"/>
+            <rect x="24" y="24" width="10" height="32" rx="2" fill="url(#grad1)" opacity="0.9"/>
+            <rect x="40" y="12" width="10" height="44" rx="2" fill="url(#grad1)"/>
+            <defs><linearGradient id="grad1" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#56d4ff"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs>
+        </svg>
+    </div>
+    <div class="floating-decoration deco-search" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="16" stroke="#56d4ff" stroke-width="3" opacity="0.7"/>
+            <line x1="40" y1="40" x2="54" y2="54" stroke="#a855f7" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+    </div>
+    <div class="floating-decoration deco-phone" aria-hidden="true">
+        <div class="phone-ring ring-1"></div>
+        <div class="phone-ring ring-2"></div>
+        <div class="phone-ring ring-3"></div>
+        <svg class="phone-icon" viewBox="0 0 48 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="2" width="40" height="76" rx="8" fill="url(#phoneGrad)" stroke="#56d4ff" stroke-width="1.5"/>
+            <rect x="10" y="12" width="28" height="48" rx="2" fill="#0a1628" opacity="0.8"/>
+            <circle cx="24" cy="68" r="4" fill="#56d4ff" opacity="0.6"/>
+            <defs><linearGradient id="phoneGrad" x1="4" y1="2" x2="44" y2="78"><stop stop-color="#1e3a8a"/><stop offset="1" stop-color="#4c1d95"/></linearGradient></defs>
+        </svg>
+    </div>
+    <div class="floating-decoration deco-shield" aria-hidden="true">
+        <div class="shield-pedestal"></div>
+        <svg viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32 4L8 16v20c0 14 10 26 24 32 14-6 24-18 24-32V16L32 4z" fill="url(#shieldGrad)" stroke="#56d4ff" stroke-width="1.5"/>
+            <path d="M22 36l7 7 14-14" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="shieldGrad" x1="8" y1="4" x2="56" y2="72"><stop stop-color="#3b82f6"/><stop offset="1" stop-color="#6366f1"/></linearGradient></defs>
+        </svg>
+    </div>
+    <div class="floating-decoration deco-doc" aria-hidden="true">
+        <svg viewBox="0 0 56 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 4h28l12 12v44H8V4z" fill="rgba(86,212,255,0.15)" stroke="#56d4ff" stroke-width="1.5"/>
+            <path d="M36 4v12h12" stroke="#a855f7" stroke-width="1.5"/>
+            <line x1="16" y1="28" x2="40" y2="28" stroke="#56d4ff" stroke-width="1.5" opacity="0.6"/>
+            <line x1="16" y1="36" x2="36" y2="36" stroke="#56d4ff" stroke-width="1.5" opacity="0.4"/>
+        </svg>
+    </div>
+    <div class="floating-decoration deco-analytics" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="24" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+            <path d="M32 32 L32 12 A20 20 0 0 1 48 28 Z" fill="#56d4ff" opacity="0.6"/>
+            <path d="M32 32 L48 28 A20 20 0 0 1 44 48 Z" fill="#a855f7" opacity="0.5"/>
+        </svg>
+    </div>
+    <div class="floating-decoration deco-wireless" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32 48c-8 0-14-6-14-14" stroke="#56d4ff" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M32 40c-4 0-8-4-8-8" stroke="#56d4ff" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="32" cy="44" r="3" fill="#a855f7"/>
+            <path d="M32 20c12 0 22 10 22 22" stroke="#a855f7" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+    </div>
 
     <div class="container">
         <header class="top-header">
             <div class="brand">
-                <div class="logo">🔬</div>
+                <div class="logo">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="22" cy="22" r="10" stroke="#fff" stroke-width="2"/>
+                        <line x1="30" y1="30" x2="40" y2="40" stroke="#56d4ff" stroke-width="2.5" stroke-linecap="round"/>
+                        <rect x="6" y="38" width="28" height="4" rx="2" fill="#a855f7" opacity="0.8"/>
+                        <line x1="14" y1="38" x2="14" y2="32" stroke="#56d4ff" stroke-width="2"/>
+                        <line x1="20" y1="38" x2="20" y2="30" stroke="#56d4ff" stroke-width="2"/>
+                        <line x1="26" y1="38" x2="26" y2="32" stroke="#56d4ff" stroke-width="2"/>
+                    </svg>
+                </div>
                 <div class="brand-text">
                     <h1>Researcher App</h1>
                     <p>AI-Powered Research Analysis</p>
@@ -35,6 +106,14 @@
 
         <main class="content-grid">
             <aside class="side-panel">
+                <div class="panel-deco-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="6" y="4" width="26" height="34" rx="3" fill="rgba(86,212,255,0.1)" stroke="#56d4ff" stroke-width="1.5"/>
+                        <circle cx="32" cy="32" r="12" stroke="#a855f7" stroke-width="2"/>
+                        <line x1="40" y1="40" x2="46" y2="46" stroke="#56d4ff" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
                 <div class="panel-heading">
                     <p class="eyebrow">Start Your Research</p>
                     <h2>Provide your topic and context for <span>AI-powered</span> analysis</h2>
@@ -42,24 +121,47 @@
 
                 <form id="researchForm" class="research-form">
                     <label class="field-label" for="topic">
-                        <span class="field-icon">🔎</span>
+                        <span class="field-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+                                <line x1="16" y1="16" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </span>
                         Research Topic
                     </label>
                     <input id="topic" name="topic" type="text" placeholder="Enter your research topic..." required />
 
                     <label class="field-label" for="context">
-                        <span class="field-icon">📄</span>
+                        <span class="field-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M6 4h10l4 4v12H6V4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                                <path d="M16 4v4h4" stroke="currentColor" stroke-width="1.8"/>
+                                <line x1="9" y1="12" x2="15" y2="12" stroke="currentColor" stroke-width="1.5"/>
+                                <line x1="9" y1="16" x2="13" y2="16" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </span>
                         Additional Context (Optional)
                     </label>
                     <textarea id="context" name="context" placeholder="Provide any additional context, background information, or specific aspects you want to focus on..."></textarea>
 
                     <button id="submitBtn" type="submit" class="primary-button">
-                        <span class="btn-text">✨ Generate Analysis</span>
+                        <span class="btn-text">
+                            <svg class="btn-sparkle" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M10 1l1.5 5.5L17 8l-5.5 1.5L10 15l-1.5-5.5L3 8l5.5-1.5L10 1z" fill="currentColor"/>
+                                <path d="M16 2l.8 2.2L19 5l-2.2.8L16 8l-.8-2.2L13 5l2.2-.8L16 2z" fill="currentColor" opacity="0.7"/>
+                            </svg>
+                            Generate Analysis
+                        </span>
                     </button>
                 </form>
 
                 <div class="footnote">
-                    <span>🔒</span>
+                    <span class="footnote-icon">
+                        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect x="4" y="9" width="12" height="9" rx="2" stroke="#6ee7b7" stroke-width="1.5"/>
+                            <path d="M7 9V7a3 3 0 016 0v2" stroke="#6ee7b7" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
                     <span>Your data is processed securely and privately</span>
                 </div>
             </aside>
@@ -82,7 +184,12 @@
                                 <p class="eyebrow">Key Points</p>
                                 <h3>Research summary and insights</h3>
                             </div>
-                            <div class="icon-mark">💡</div>
+                            <div class="icon-mark">
+                                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M16 4l2 8h8l-6.5 5 2.5 8L16 20l-6 5 2.5-8L6 12h8l2-8z" fill="url(#bulbGrad)" stroke="#56d4ff" stroke-width="0.5"/>
+                                    <defs><linearGradient id="bulbGrad" x1="6" y1="4" x2="26" y2="28"><stop stop-color="#56d4ff"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs>
+                                </svg>
+                            </div>
                         </div>
                         <div class="card-body">
                             <ul id="keyPointsList"></ul>
@@ -91,6 +198,13 @@
 
                     <div class="card analysis-card">
                         <div class="analysis-header">
+                            <div class="analysis-header-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="3" y="14" width="4" height="7" rx="1" fill="#56d4ff"/>
+                                    <rect x="10" y="9" width="4" height="12" rx="1" fill="#a855f7"/>
+                                    <rect x="17" y="5" width="4" height="16" rx="1" fill="#ec4899"/>
+                                </svg>
+                            </div>
                             <h3 id="analysisTitle">Analysis</h3>
                         </div>
                         <div class="analysis-grid">
@@ -104,7 +218,13 @@
                             </div>
                         </div>
                         <div class="recommendation">
-                            <h3>Recommendation</h3>
+                            <h3>
+                                <svg class="rec-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M10 6v5l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                Recommendation
+                            </h3>
                             <p id="recommendationText"></p>
                         </div>
                     </div>
@@ -113,7 +233,6 @@
         </main>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=4"></script>
 </body>
 </html>
-```

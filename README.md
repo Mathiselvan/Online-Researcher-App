@@ -65,17 +65,10 @@ Expected JSON response:
 Set `API_BASE_URL` to your app URL before running the test. For example:
 
 ```bash
-API_BASE_URL=https://your-app-url.vercel.app node test_full_prompt.js
+API_BASE_URL=http://localhost:3000 node test_full_prompt.js
 ```
 
-### Mock test
-
-Run the local proxy in mock mode and set `API_BASE_URL` to the local or deployed app URL:
-
-```bash
-MOCK_MODE=true npm run dev
-API_BASE_URL=https://your-app-url.vercel.app node test_mock_run.js
-```
+Ensure `GEMINI_API_KEY` is set in `.env` before testing locally or in Vercel project settings for production.
 
 ## Security
 
